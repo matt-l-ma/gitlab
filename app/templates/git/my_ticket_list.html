@@ -1,0 +1,24 @@
+{% extends 'admin/model/list.html' %} 
+{% block body %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <h1>Custom List View</h1> 
+    {{ super() }} 
+{% endblock %}
+
+{% block list_header scoped %}
+    {{ super() }}
+    <th class="column-header">
+        Operation
+    </th>
+{% endblock %}
+
+{% block list_row scoped %}
+    {{ super() }}
+    <td> 
+        {% if admin_view.is_pending(row) == True %}
+        <input class="btn" value="{{ _gettext('Submit') }}" type="submit" onclick="post('/admin/ticket/submit', {'id': {{ get_pk_value(row) }} })"/>
+        {% else %}
+        
+        {% endif %}
+    </td>
+{% endblock %}
