@@ -120,7 +120,7 @@ CREATE TABLE `roles_users` (
 
 LOCK TABLES `roles_users` WRITE;
 /*!40000 ALTER TABLE `roles_users` DISABLE KEYS */;
-INSERT INTO `roles_users` VALUES (2,0),(1,1);
+INSERT INTO `roles_users` VALUES (2,0),(1,1),(1,2);
 /*!40000 ALTER TABLE `roles_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +145,7 @@ CREATE TABLE `ticket` (
   KEY `FK_ticket_user_owner_id` (`owner_id`),
   CONSTRAINT `FK_ticket_user_approve_id` FOREIGN KEY (`approve_id`) REFERENCES `user` (`id`),
   CONSTRAINT `FK_ticket_user_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,'Repo','Approve','Create a group.\r\nname: abc',3,1,'2018-01-21 14:51:00','2018-01-21 14:51:00'),(2,'Group','Approve','test',1,NULL,'2018-01-14 20:45:00','2018-01-14 20:45:00'),(3,'Group','Reject','asdads',3,NULL,'2018-01-15 20:50:00','2018-01-15 20:50:00');
+INSERT INTO `ticket` VALUES (1,'Repo','Approve','Create a group.\r\nname: abc',3,1,'2018-01-21 14:51:00','2018-01-21 14:51:00'),(2,'Group','Approve','test',1,NULL,'2018-01-14 20:45:00','2018-01-14 20:45:00'),(3,'Group','Reject','asdads',3,NULL,'2018-01-15 20:50:00','2018-01-15 20:50:00'),(5,'Group','Approve','XXXXXOOO',3,1,'2018-01-22 23:20:32','2018-01-22 23:23:25'),(6,'Group','Pending','Test 222',3,NULL,'2018-01-23 00:03:18','2018-01-23 00:03:31'),(7,'Repo','Submit','TTTTTT',2,NULL,'2018-01-23 00:05:56','2018-01-23 00:05:56');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-22 20:53:54
+-- Dump completed on 2018-01-23  0:12:42

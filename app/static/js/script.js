@@ -21,11 +21,4 @@ function post(path, params, method) {
     form.submit();
 }
 
-function submit_for_approve(id) {
-
-    post('/admin/ticket/submit', {'id':id}, function(data){
-        alert(data);
-        
-    });
-}
 
