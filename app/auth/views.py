@@ -6,8 +6,21 @@ from ..models import User
 from .forms import LoginForm
 
 # Create customized model view class
-class UserRoleAdminView(sqla.ModelView):
+class UserAdminView(sqla.ModelView):
 
+    form_columns = ('username', 'password', 'email', 'name', 'roles', 'active')
+    def is_accessible(self):
+        if not current_user.is_active or not current_user.is_authenticated:
+            return False
+
+        if current_user.has_role('ROLE_USER_ADMIN'):
+            return True
+
+        return False
+
+class RoleAdminView(sqla.ModelView):
+
+    #form_columns = ()
     def is_accessible(self):
         if not current_user.is_active or not current_user.is_authenticated:
             return False

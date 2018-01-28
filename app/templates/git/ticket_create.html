@@ -1,0 +1,39 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+{% from 'admin/lib.html' import extra with context %} {# backward compatible #}
+
+{% block head %}
+  {{ super() }}
+  {{ lib.form_css() }}
+{% endblock %}
+
+{% block body %}
+  {% block navlinks %}
+  <ul class="nav nav-tabs">
+        <li>
+            <a href="{{ return_url }}">{{ _gettext('List') }}{% if count %} ({{ count }}){% endif %}</a>
+        </li>
+        <li {% if active_tab == 'NewRepo' %} class="active" {% endif %} >
+            <a href="{{ get_url('.apply_new_repo_view', url=return_url) }}" title="申请新建库">申请新建库</a>
+        </li>
+        <li {% if active_tab == 'NewGroup' %} class="active" {% endif %}>
+            <a href="{{ get_url('.apply_new_group_view', url=return_url) }}" title="申请新建组">申请新建组</a>
+        </li>
+        <li {% if active_tab == 'RepoAccess' %} class="active" {% endif %}>
+            <a href="{{ get_url('.apply_repo_access_view', url=return_url) }}" title="申请库权限">申请库权限</a>
+        </li>
+        <li {% if active_tab == 'GroupAccess' %} class="active" {% endif %}>
+            <a href="{{ get_url('.apply_group_access_view', url=return_url) }}" title="申请组权限">申请组权限</a>
+        </li>
+  </ul>
+  {% endblock %}
+
+  {% block create_form %}
+    {{ lib.render_form(form, return_url, None, form_opts) }}
+  {% endblock %}
+{% endblock %}
+
+{% block tail %}
+  {{ super() }}
+  {{ lib.form_js() }}
+{% endblock %}

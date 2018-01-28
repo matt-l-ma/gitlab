@@ -5,9 +5,9 @@
 
     <div>
         {% if current_user.is_authenticated %}
-        <h1>Git Management System</h1>
+        <h3>配置管理系统</h3>
         <p class="lead">
-            Hello, {{ current_user.name }}!
+            你好, {{ current_user.name }}!
         </p>
         
         {% else %}
@@ -26,7 +26,7 @@
             {% endif %}
             </div>
             {% endfor %}
-            <button class="btn" type="submit">Submit</button>
+            <button class="btn" type="submit">登陆</button>
         </form>
         {{ link | safe }}
         {% endif %}

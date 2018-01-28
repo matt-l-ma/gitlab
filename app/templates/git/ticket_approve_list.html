@@ -1,14 +1,13 @@
 {% extends 'admin/model/list.html' %} 
 {% block body %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <h2>Request Tickets</h2> 
     {{ super() }} 
 {% endblock %}
 
 {% block list_header scoped %}
     {{ super() }}
     <th class="column-header">
-        Operation
+        操作
     </th>
 {% endblock %}
 
@@ -16,8 +15,8 @@
     {{ super() }}
     <td> 
         {% if admin_view.is_submit(row) == True %}
-        <input class="btn" value="{{ _gettext('Approve') }}" type="submit" onclick="post('/admin/approval/approve', {'id': {{ get_pk_value(row) }} })"/>
-        <input class="btn" value="{{ _gettext('Reject') }}" type="submit" onclick="post('/admin/approval/reject', {'id': {{ get_pk_value(row) }} })"/>
+        <input class="btn" value="批准" type="submit" onclick="post('/admin/approval/approve', {'id': {{ get_pk_value(row) }} })"/>
+        <input class="btn" value="驳回" type="submit" onclick="post('/admin/approval/reject', {'id': {{ get_pk_value(row) }} })"/>
         {% endif %}
     </td>
 {% endblock %}
