@@ -106,10 +106,10 @@ class RepoAccess(db.Model):
     access_type = db.Column(db.Enum(AccessType), nullable=False)
 
     def __str__(self):
-        return "User: %s, Repo: %s, Access: %s" % (self.user.name, self.repo, self.access_type.value)
+        return "User: %s, Repo: %s, Access: %s" % (self.user.name, self.repo, self.access_type)
     
     def to_string(self):
-        return "User: %s, Repo: %s, Access: %s" % (self.user.name, self.repo, self.access_type.value)
+        return "User: %s, Repo: %s, Access: %s" % (self.user.name, self.repo, self.access_type)
 
 class GroupAccess(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -121,10 +121,10 @@ class GroupAccess(db.Model):
     access_type = db.Column(db.Enum(AccessType), nullable=False)
 
     def __str__(self):
-        return "User: %s, Group: %s, Access: %s" % (self.user.name, self.group, self.access_type.value)
+        return "User: %s, Group: %s, Access: %s" % (self.user.name, self.group, self.access_type)
     
     def to_string(self):
-        return "User: %s, Group: %s, Access: %s" % (self.user.name, self.group, self.access_type.value)
+        return "User: %s, Group: %s, Access: %s" % (self.user.name, self.group, self.access_type)
 
 class TicketType(Enum):
     NewGroup = 'NewGroup'
